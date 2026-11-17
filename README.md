@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Coy Discover
 
-## Getting Started
+A swipe-based "Discover" tab for Coy, built as a standalone app for the Coy SDE Intern assignment.
+The Home tab is intentionally blank; all functionality lives in Discover.
 
-First, run the development server:
+## Features
+- 32 seeded profiles (name, age, photo, bio, city/college, interests); 12 have already liked you, so matches are easy to demo
+- One card at a time: drag to swipe on mobile, ✕ / ♥ buttons on desktop, with tilt animation and LIKE / NOPE stamps
+- A swiped profile never appears again
+- "It's a match!" screen, a Matches view, and empty states
+- Swipes and matches persist across reloads
 
+## Tech stack
+Next.js (App Router) + TypeScript + Tailwind CSS. API routes are the backend. Data is stored in a JSON file (`data/state.json`). Tests use Vitest.
+
+## Run locally
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm test        # run unit tests
 ```
+To reset the demo, delete `data/state.json`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## API
+| Method | Route | Description |
+|---|---|---|
+| GET | `/api/feed` | Profiles you have not swiped on yet |
+| POST | `/api/swipe` | Body `{ "profileId": number, "action": "like" \| "pass" }`. Returns `{ matched, match }`. 409 if already swiped, 404 if unknown |
+| GET | `/api/matches` | Your mutual matches, newest first |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Design decisions
+- **Privacy first:** the `likesMe` flag exists only on the server. Profiles are converted with `toPublic()` before leaving the API, so the browser can never learn who liked you unless it is a mutual match. Tests check this.
+- **Pure logic, thin routes:** all rules live in `lib/logic.ts` (no file access), which makes them easy to test. `lib/store.ts` only reads and writes JSON.
+- **Server-enforced rules:** the server rejects duplicate swipes (409), so "never show a profile twice" does not depend on the UI.
+- **Single user:** no auth, as the assignment says.
+- **No gesture library:** drag uses native pointer events, which work for both mouse and touch.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Known limitations / next steps
+- JSON file storage is not safe for concurrent writes; a real database (Postgres/SQLite) would replace `lib/store.ts`
+- No undo, filters or real photo uploads
