@@ -16,3 +16,16 @@ export type Swipe = {
   action: SwipeAction;
   createdAt: string;
 };
+
+
+export type PublicProfile = Omit<Profile, "likesMe">; // what the browser is allowed to see
+
+export type Match = {
+  profileId: number;
+  matchedAt: string;
+};
+
+export type State = {
+  swipes: Swipe[];
+  matches: Match[];
+};
