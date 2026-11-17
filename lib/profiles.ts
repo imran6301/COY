@@ -1,0 +1,38 @@
+import type { Profile } from "./types";
+
+const photo = (id: number) => `https://i.pravatar.cc/600?img=${id}`;
+
+export const PROFILES: Profile[] = [
+  { id: 1, name: "Ananya", age: 21, photo: photo(1), bio: "Coffee first, deadlines later.", city: "IIT Madras", interests: ["Coding", "Coffee", "Indie music"], likesMe: true },
+  { id: 2, name: "Rohan", age: 23, photo: photo(2), bio: "Weekend trekker, weekday overthinker.", city: "Bengaluru", interests: ["Trekking", "Photography", "Chess"], likesMe: false },
+  { id: 3, name: "Priya", age: 22, photo: photo(3), bio: "Will beat you at Uno.", city: "Delhi University", interests: ["Board games", "Dance", "Movies"], likesMe: true },
+  { id: 4, name: "Arjun", age: 24, photo: photo(4), bio: "Chai over everything.", city: "Mumbai", interests: ["Cricket", "Chai", "Podcasts"], likesMe: false },
+  { id: 5, name: "Sneha", age: 20, photo: photo(5), bio: "Sketchbook always in my bag.", city: "NIFT Chennai", interests: ["Art", "Fashion", "Cafes"], likesMe: true },
+  { id: 6, name: "Karthik", age: 25, photo: photo(6), bio: "Building things at 2 AM.", city: "Hyderabad", interests: ["Startups", "Gym", "Gaming"], likesMe: false },
+  { id: 7, name: "Meera", age: 22, photo: photo(7), bio: "Bookworm with strong opinions.", city: "Pune", interests: ["Reading", "Poetry", "Baking"], likesMe: false },
+  { id: 8, name: "Aditya", age: 23, photo: photo(8), bio: "Guitar, gym, repeat.", city: "BITS Pilani", interests: ["Guitar", "Fitness", "Football"], likesMe: true },
+  { id: 9, name: "Divya", age: 21, photo: photo(9), bio: "Ask me about my plant collection.", city: "Chennai", interests: ["Plants", "Yoga", "Travel"], likesMe: false },
+  { id: 10, name: "Vikram", age: 26, photo: photo(10), bio: "Foodie on a mission.", city: "Kolkata", interests: ["Food", "Street photography", "Cycling"], likesMe: true },
+  { id: 11, name: "Nisha", age: 22, photo: photo(11), bio: "Professional napper.", city: "Jaipur", interests: ["Sleeping", "Netflix", "Thrifting"], likesMe: false },
+  { id: 12, name: "Rahul", age: 24, photo: photo(12), bio: "Stand-up comedy is my therapy.", city: "Delhi", interests: ["Comedy", "Writing", "Badminton"], likesMe: true },
+  { id: 13, name: "Pooja", age: 23, photo: photo(13), bio: "Classical dancer, modern thinker.", city: "Mysuru", interests: ["Bharatanatyam", "Music", "Cooking"], likesMe: false },
+  { id: 14, name: "Siddharth", age: 25, photo: photo(14), bio: "F1 and filter coffee.", city: "Coimbatore", interests: ["F1", "Coffee", "Road trips"], likesMe: false },
+  { id: 15, name: "Kavya", age: 21, photo: photo(15), bio: "Psychology student, amateur astrologer.", city: "Christ University", interests: ["Psychology", "Astrology", "Journaling"], likesMe: true },
+  { id: 16, name: "Manish", age: 27, photo: photo(16), bio: "Data nerd who loves hiking.", city: "Gurugram", interests: ["Data science", "Hiking", "Cooking"], likesMe: false },
+  { id: 17, name: "Ishita", age: 22, photo: photo(17), bio: "Always planning the next trip.", city: "Goa", interests: ["Travel", "Surfing", "Photography"], likesMe: false },
+  { id: 18, name: "Naveen", age: 24, photo: photo(18), bio: "Biryani debate champion.", city: "Hyderabad", interests: ["Biryani", "Cricket", "Standup"], likesMe: true },
+  { id: 19, name: "Tanvi", age: 20, photo: photo(19), bio: "Fresher energy, senior sarcasm.", city: "VIT Vellore", interests: ["Anime", "Memes", "Badminton"], likesMe: false },
+  { id: 20, name: "Harsh", age: 23, photo: photo(20), bio: "Mountain person trapped in a metro.", city: "Chandigarh", interests: ["Mountains", "Bikes", "Poetry"], likesMe: false },
+  { id: 21, name: "Lakshmi", age: 22, photo: photo(21), bio: "Carnatic music and cold brew.", city: "Chennai", interests: ["Carnatic music", "Cold brew", "Painting"], likesMe: true },
+  { id: 22, name: "Dev", age: 26, photo: photo(22), bio: "Startup founder, part-time chef.", city: "Bengaluru", interests: ["Startups", "Cooking", "Tennis"], likesMe: false },
+  { id: 23, name: "Aarohi", age: 21, photo: photo(23), bio: "Journalism student chasing stories.", city: "Symbiosis Pune", interests: ["Journalism", "Podcasts", "Theatre"], likesMe: false },
+  { id: 24, name: "Imran", age: 24, photo: photo(24), bio: "Football on weekends, code on weekdays.", city: "Hyderabad", interests: ["Football", "Coding", "Travel"], likesMe: true },
+  { id: 25, name: "Shreya", age: 23, photo: photo(25), bio: "Skincare nerd and rom-com expert.", city: "Mumbai", interests: ["Skincare", "Rom-coms", "Pilates"], likesMe: false },
+  { id: 26, name: "Gautam", age: 25, photo: photo(26), bio: "Film buff with a Letterboxd problem.", city: "Kochi", interests: ["Cinema", "Writing", "Beaches"], likesMe: false },
+  { id: 27, name: "Riya", age: 20, photo: photo(27), bio: "Dog person, obviously.", city: "Ashoka University", interests: ["Dogs", "Volleyball", "Baking"], likesMe: true },
+  { id: 28, name: "Abhishek", age: 28, photo: photo(28), bio: "Lawyer by day, drummer by night.", city: "Delhi", interests: ["Drums", "Law", "Whiskey"], likesMe: false },
+  { id: 29, name: "Fatima", age: 22, photo: photo(29), bio: "Architecture student who sketches buildings.", city: "Aligarh", interests: ["Architecture", "Sketching", "Biryani"], likesMe: false },
+  { id: 30, name: "Yash", age: 23, photo: photo(30), bio: "Gym bro with a soft side.", city: "Nagpur", interests: ["Gym", "Cooking", "Dogs"], likesMe: true },
+  { id: 31, name: "Nandini", age: 24, photo: photo(31), bio: "Researcher who loves bad puns.", city: "IISc Bengaluru", interests: ["Science", "Puns", "Running"], likesMe: false },
+  { id: 32, name: "Zoya", age: 21, photo: photo(32), bio: "Spoken word and sunsets.", city: "Lucknow", interests: ["Poetry", "Photography", "Chai"], likesMe: false },
+];
