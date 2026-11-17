@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+:root {
+  --coy-pink: #ff3d81;
+  --coy-ink: #1a1a1a;
+  --coy-lilac: #e6deff;
+  --coy-mint: #c8f2df;
+}
+
+html,
+body {
+  height: 100%;
+  background: #ffffff;
+  color: var(--coy-ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  overscroll-behavior: none;
+}
